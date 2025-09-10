@@ -2,24 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>James Smith | IT Support & Creative Tech</title>
+  <title>James A. Smith IV | IT Support & Creative Tech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CompTIA A+ certified IT support specialist and former educator showcasing tech skills, creative media, and knowledge briefs.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+  <!-- ==========  KIMI K2  –  PRETTY BOOST  ========== -->
   <style>
     :root{--blue:#0057b8;--white:#ffffff;--gray:#f5f7fa;--dark:#111827}
     *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth}section {scroll-margin-top: 58px;}
     body{background:var(--white);color:var(--dark);line-height:1.6}
+
+    /* 1. micro-animations ---------------------------------------------------- */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    body{animation:fadeIn .7s ease-out}
+    .card{transition:transform .25s,box-shadow .25s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+
+    /* 2. glass-morphism hero ------------------------------------------------- */
+    .hero{
+      background:rgba(0,87,184,.75);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.2);
+      position:relative;
+    }
+    /* decorative wave */
+    .hero::after{
+      content:"";
+      position:absolute;
+      bottom:-1px;left:0;width:100%;height:60px;
+      background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="%23ffffff" d="M0,32L80,42.7C160,53,320,75,480,74.7C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"/></svg>');
+      background-size:101% 100%;
+    }
+
     a{color:var(--blue);text-decoration:none;font-weight:bold}
     img{max-width:100%;display:block}
     header{position:fixed;top:0;width:100%;background:var(--white);box-shadow:0 2px 4px rgba(0,0,0,.1);z-index:1000}
     nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
     nav ul{display:flex;gap:1.5rem;list-style:none}
-    .hero{background:var(--blue);color:var(--white);padding:8rem 2rem 4rem;text-align:center}
+    .hero{color:var(--white);padding:8rem 2rem 4rem;text-align:center}
     .hero h1{font-size:2.5rem;margin-bottom:.5rem}
     .hero p{font-size:1.2rem;margin-bottom:1.5rem}
-    .btn{background:var(--white);color:var(--blue);padding:.75rem 1.5rem;border-radius:4px;font-weight:bold;display:inline-block}
+    .btn{background:var(--white);color:var(--blue);padding:.75rem 1.5rem;border-radius:4px;font-weight:bold;display:inline-block;cursor:pointer}
     .container{max-width:1000px;margin:auto;padding:2rem 1rem}
     .section-title{text-align:center;margin-bottom:2rem;font-size:2rem;color:var(--blue)}
     .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -30,6 +56,25 @@
     .tag{background:var(--blue);color:var(--white);padding:.25rem .5rem;border-radius:4px;font-size:.8rem}
     footer{text-align:center;padding:2rem 1rem;font-size:.9rem;color:#777}
     @media(max-width:600px){nav ul{flex-direction:column;gap:.5rem}.hero h1{font-size:2rem}}
+
+    #briefs{background:var(--gray) url('https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/Green%20bg.jpg') center/cover no-repeat;}
+    #projects{background:var(--gray) url('https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/line%20codes.jpg') center/cover no-repeat;}
+    #trends{background:var(--blue) url('https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/Blue%20BG.jpg') center/cover no-repeat;color:var(--white);}
+    #trends .card{background:rgba(255,255,255,.08);color:var(--white);}
+
+    /* 4. skill progress bars ------------------------------------------------- */
+    .skill-bar{margin:.6rem 0;font-size:.9rem}
+    .skill-bar span{display:block;margin-bottom:.2rem}
+    .bar{height:6px;background:rgba(0,0,0,.1);border-radius:3px;overflow:hidden}
+    .bar div{height:100%;background:var(--blue);animation:grow 1s ease forwards}
+    @keyframes grow{from{width:0}}
+
+    /* 5. flip-card projects -------------------------------------------------- */
+    .flip-card{perspective:1000px;height:220px}
+    .flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+    .flip-card:hover .flip-inner{transform:rotateY(180deg)}
+    .flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:6px;padding:1.5rem;background:var(--gray);display:flex;flex-direction:column;justify-content:space-between}
+    .flip-back{transform:rotateY(180deg);background:var(--blue);color:#fff}
   </style>
 </head>
 <body>
@@ -37,32 +82,54 @@
 <!-- NAV -->
 <header>
   <nav>
-    <div><strong>James Smith</strong></div>
+    <div><strong>James A. Smith IV</strong></div>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#briefs">Briefs</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#creative">Creative</a></li>
-      <li><a href="#photovideo">Photo/Video</a></li>
-      <li><a href="#trends">Trends</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li><li><a href="#briefs">Briefs</a></li><li><a href="#projects">Projects</a></li>
+      <li><a href="#creative">Creative</a></li><li><a href="#photovideo">Photo/Video</a></li><li><a href="#trends">Trends</a></li>
+      <li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- Hero Section -->
 <section class="hero" id="home">
   <h1>IT Support & Creative Tech</h1>
   <p>CompTIA A+ certified • Former Educator • Music & Media Creator</p>
-  <a href="https://drive.google.com/file/d/1xJx7k4p6qZ7f8Y9z0A1b2C3d4E5F6G7H/view?usp=sharing" class="btn" download>Download Résumé (PDF)</a>
+
+  <!-- Resume Button -->
+  <a href="https://github.com/jsmith94iv/jsmith94iv.github.io/blob/main/images/James_Smith_IT_Resume_ITP.pdf" 
+     class="btn" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     onclick="launchConfetti();">
+     Download Résumé (PDF)
+  </a>
 </section>
+
+<!-- Confetti Script -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+function launchConfetti() {
+  confetti({
+    particleCount: 15,     // small number of particles
+    spread: 45,            // tighter spread
+    origin: { y: 0.6 },    // start from middle of button area
+    colors: ['#4CAF50','#FFFFFF'], // simple color palette
+    scalar: 0.8            // smaller particle size
+  });
+}
+</script>
+
+
 
 <!-- ABOUT -->
 <section id="about" class="container">
   <h2 class="section-title">About</h2>
-  <div class="card">
-    <p>Hi, I'm <strong>James Smith</strong>. After 8 years as a Special-Education Teacher—translating complex ideas into simple steps for students with diverse needs—I’ve pivoted into technology. I hold the <strong>Google IT Support</strong> and <strong>CompTIA A+</strong> certificates and love combining customer-service empathy with hands-on troubleshooting. When I’m not fixing systems, I’m producing music or editing photos/videos—skills that make me a creative communicator and patient help-desk analyst.</p>
+  <div class="card" style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+    <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/My%20pic.jpg" alt="James Smith" style="width:140px;height:140px;border-radius:50%;object-fit:cover;flex-shrink:0">
+    <div>
+      <p>Hi, I'm <strong>James Smith</strong>. After 8 years as a Special-Education Teacher—translating complex ideas into simple steps for students with diverse needs—I’ve pivoted into technology. I hold the <strong>Google IT Support</strong> and <strong>CompTIA A+</strong> certificates and love combining customer-service empathy with hands-on troubleshooting. When I’m not fixing systems, I’m producing music or editing photos/videos—skills that make me a creative communicator and patient help-desk analyst.</p>
+    </div>
   </div>
 </section>
 
@@ -71,19 +138,17 @@
   <h2 class="section-title">Certifications</h2>
   <div class="grid">
     <div class="card">
-      <img src="images/google-it-support.png" alt="Google IT Support" style="height:60px;margin:.25rem 0">
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/GCC_badge_IT_Support_1000x1000.png" alt="Google IT Support" style="height:60px;width:auto;">
       <h3>Google IT Support</h3>
       <a href="https://coursera.org/share/7ce139c5eae8cb9668acf69c1c22e2a6" target="_blank">Verify →</a>
     </div>
-
     <div class="card">
-      <img src="images/comptia-a-plus.png" alt="CompTIA A+" style="height:60px;margin:.25rem 0">
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/Comptia.png" style="height:60px;margin:.25rem 0">
       <h3>CompTIA A+</h3>
-      <a href="https://www.credly.com/badges/yyyyyyyyyy" target="_blank">Verify →</a>
+      <a href="https://www.credly.com/org/comptia/badge/comptia-a-ce-certification.1" target="_blank">Verify →</a>
     </div>
-
     <div class="card">
-      <img src="images/cybersecurity-certificate.png" alt="Cybersecurity Certificate" style="height:60px;margin:.25rem 0">
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/Cyber%20S.png" alt="Cybersecurity Certificate" style="height:60px;margin:.25rem 0">
       <h3>Cybersecurity Specialization</h3>
       <a href="https://www.coursera.org/account/accomplishments/records/6SV853Z61RGB" target="_blank">Verify →</a>
     </div>
@@ -129,56 +194,165 @@
 
 <!-- IT PROJECTS -->
 <section id="projects" class="container">
-  <h2 class="section-title">IT Projects</h2>
+  <h2 class="section-title">Completed IT Projects</h2>
   <div class="grid">
-    <div class="card">
-      <h3>PC Build Lab</h3>
-      <p>Assembled PC, installed OS, tested functionality. <a href="https://docs.google.com/presentation/d/12fAFIdRrnLoqZDJmSuzUsMXAtWP-T0jh/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View Lab</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>PC Build Lab</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Assembled PC, installed OS, tested functionality.</p>
+          <a href="https://docs.google.com/presentation/d/12fAFIdRrnLoqZDJmSuzUsMXAtWP-T0jh/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View Lab</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>From Desktop Chaos to 3-Click Search</h3>
-      <p>Optimized Windows workflow, boosted search efficiency. <a href="https://docs.google.com/presentation/d/1V9rJbL5N3ojuyv9ycyCn0I7juQjoPgOt/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>From Desktop Chaos to 3-Click Search</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Optimized Windows workflow, boosted search efficiency.</p>
+          <a href="https://docs.google.com/presentation/d/1V9rJbL5N3ojuyv9ycyCn0I7juQjoPgOt/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Managing Services in Linux</h3>
-      <p>Configured and monitored Linux services hands-on. <a href="https://docs.google.com/presentation/d/19TDL0k5uH6BM7gegL_csD3RBOyb0VlzT/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Managing Services in Linux</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Configured and monitored Linux services hands-on.</p>
+          <a href="https://docs.google.com/presentation/d/19TDL0k5uH6BM7gegL_csD3RBOyb0VlzT/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Jira Service Desk Build</h3>
-      <p>Built Jira helpdesk with SLA, priorities, KB. <a href="https://docs.google.com/presentation/d/1YAWlQi_ilPEk9ACT7gnc0755FGpmjrRo/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View lab</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Jira Service Desk Build</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Built Jira helpdesk with SLA, priorities, KB.</p>
+          <a href="https://docs.google.com/presentation/d/1YAWlQi_ilPEk9ACT7gnc0755FGpmjrRo/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View lab</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Cryptography with OpenSSL</h3>
-      <p>Implemented encryption, key management, secure messaging. <a href="https://docs.google.com/presentation/d/1q4x7NBDp2mUyvNfLPyNblf0rBBw2DvSI/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Cryptography with OpenSSL</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Implemented encryption, key management, secure messaging.</p>
+          <a href="https://docs.google.com/presentation/d/1q4x7NBDp2mUyvNfLPyNblf0rBBw2DvSI/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View details</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>PowerShell User-Onboarding Script</h3>
-      <p>Automated AD account setup and welcome process. <a href="https://docs.google.com/presentation/d/1SBW7iPoWSidq7To4RDQyCFAzUS85f9uK/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View Lab</a></p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>PowerShell User-Onboarding Script</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Automated AD account setup and welcome process.</p>
+          <a href="https://docs.google.com/presentation/d/1SBW7iPoWSidq7To4RDQyCFAzUS85f9uK/edit?usp=sharing&ouid=103950896759462208983&rtpof=true&sd=true" target="_blank">View Lab</a>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
+
+<!-- CSS -->
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.flip-card-front {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.flip-card-back {
+  background-color: #333;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+</style>
+
 
 <!-- CREATIVE CORNER -->
 <section id="creative" class="container">
   <h2 class="section-title">Creative Corner</h2>
-
-  <!-- Music Production -->
   <h3 style="margin-bottom:1rem;text-align:center">Music Production</h3>
   <div class="grid">
     <div class="card">
-      <iframe src="[BANDCAMP_OR_SOUNDCLOUD_EMBED_URL]" width="100%" height="180" frameborder="0"></iframe>
-      <h4>Lofi Study Beats</h4>
-      <p>Relaxing instrumentals, >15 k streams. <a href="[LOFI_LINK]" target="_blank">Stream →</a></p>
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/Rock2.png" alt="Inner Peace" style="width:100%;border-radius:4px;margin-bottom:1rem;">
+      <h4>Inner Peace</h4>
+      <p>Original lyrics by James Smith - Reimagined with Suno. <a href="https://suno.com/s/E2K5kIp1ptUyLIsZ" target="_blank">Listen →</a></p>
     </div>
     <div class="card">
-      <iframe src="[ROCK_EMBED]" width="100%" height="180" frameborder="0"></iframe>
-      <h4>Rock EP – “Kernel Panic”</h4>
-      <p>Alt-rock tracks mixed in Ableton. <a href="[ROCK_LINK]" target="_blank">Listen →</a></p>
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/Rock2.png" alt="Severe Intention" style="width:100%;border-radius:4px;margin-bottom:1rem;">
+      <h4>Severe Intention</h4>
+      <p>Original lyrics by James Smith - Reimagined with Suno. <a href="https://suno.com/s/7ZH81Jlc7SbGJuJA" target="_blank">Listen →</a></p>
     </div>
     <div class="card">
-      <iframe src="[COMP_EMBED]" width="100%" height="180" frameborder="0"></iframe>
-      <h4>Orchestral Compositions</h4>
-      <p>Cinematic scores written in MuseScore. <a href="[SCORE_LINK]" target="_blank">Scores →</a></p>
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/Rock2.png" alt="Never Back Down" style="width:100%;border-radius:4px;margin-bottom:1rem;">
+      <h4>Never Back Down</h4>
+      <p>Original lyrics by James Smith - Reimagined with Suno. <a href="https://suno.com/s/xV02dXM375dX2rsz" target="_blank">Listen →</a></p>
     </div>
   </div>
 </section>
@@ -188,14 +362,16 @@
   <h2 class="section-title">Photo & Video Editing</h2>
   <div class="grid">
     <div class="card">
-      <img src="[COLOR_GRADE_THUMB.jpg]" alt="Before/After color grade">
-      <h3>Short-Film Color Grade</h3>
-      <p>DaVinci Resolve workflow, LUT creation, skin-tone isolation. <a href="[COLOR_VIDEO_LINK]" target="_blank">Watch 30-sec demo →</a></p>
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/DVLG.png" alt="Before/after webinar colour fix">
+      <h3>Corporate Webinar Colour Fix</h3>
+      <p>DaVinci Resolve workflow: match white-balance & skin tones for Teams recordings in 2 min.</p>
+      <a href="https://youtu.be/HbdESEtlKfI?si=1Crb8p9_3pBZu3JJ" target="_blank" rel="noopener">Watch demo →</a>
     </div>
     <div class="card">
-      <img src="[EVENT_PHOTO_THUMB.jpg]" alt="Event photo retouch">
-      <h3>Event Photography Retouch</h3>
-      <p>Lightroom batch editing, Photoshop compositing. <a href="[PHOTO_GALLERY_LINK]" target="_blank">Gallery →</a></p>
+      <img src="https://raw.githubusercontent.com/jsmith94iv/jsmith94iv.github.io/refs/heads/main/images/VidEd.png" alt="Same-day corporate event highlight">
+      <h3>Same-Day Event Highlight Reel</h3>
+      <p>Shoot, cut & caption a 60-sec recap on a phone—ready before the coffee gets cold.</p>
+      <a href="https://youtu.be/H49ZeGwT6PU?si=W_okCTfzjmh_FyF6" target="_blank" rel="noopener">See workflow →</a>
     </div>
   </div>
 </section>
@@ -203,10 +379,11 @@
 <!-- TRENDS IN TECH -->
 <section id="trends" class="container">
   <h2 class="section-title">Trends in Tech I’m Tracking</h2>
-  <div class="grid">    <div class="card">
+  <div class="grid">
+    <div class="card">
       <h3>AI-Driven Help Desks</h3>
       <p>How GPT-style bots are cutting Tier-1 tickets.
-      <a href="https://www.moveworks.com/us/en/resources/blog/enterprise-guide-to-tier-1-help-desk-automation" target="_blank">Gartner insight →</a></p>
+      <a href="https://www.moveworks.com/us/en/resources/blog/enterprise-guide-to-tier-1-help-desk-automation" target="_blank">Garner insight →</a></p>
     </div>
     <div class="card">
       <h3>Zero-Trust Security</h3>
@@ -285,6 +462,17 @@
       <!-- Cloud & Virtualization -->
       <span class="tag">Software-Defined Networking</span>
       <span class="tag">Cloud Networking</span>
+	  
+	  <!-- NEW: Monitoring & Backups -->
+     <span class="tag">Nagios</span>
+<span class="tag">Zabbix</span>
+<span class="tag">Veeam</span>
+<span class="tag">Prometheus</span>
+
+      <!-- NEW: Scripting & Data -->
+      <span class="tag">PowerShell</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">JSON / REST APIs</span>
 
       <!-- Collaboration & Communication -->
       <span class="tag">Google Workspace</span>
@@ -297,8 +485,8 @@
 <section id="contact" class="container">
   <h2 class="section-title">Contact</h2>
   <div class="card" style="text-align:center">
-    <p>Email: <a href="mailto:J.smith94IV@Gmail.com">J.smith94IV@Gmail.com</a></p>
-    <p>Phone: <a href="tel:+1-555-123-4567">+1-555-123-4567</a></p>
+    <p>Email: <a href="mailto:J.Smith94IV@Gmail.com">J.smith94IV@Gmail.com</a></p>
+    <p>Phone: <a href="tel:561-707-4290">561-707-4290</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/james-smith-it-nyc/" target="_blank">linkedin.com/in/james-smith-it-nyc</a></p>
     <p>GitHub: <a href="https://github.com/Jsmith94IV" target="_blank">github.com/Jsmith94IV</a></p>
   </div>
@@ -310,15 +498,36 @@
 </footer>
 
 <script>
-  // auto year
-  document.getElementById('date').textContent = new Date().toLocaleDateString();
-  // tiny smooth-scroll polyfill for old Safari
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
+/* 1.  current date in footer */
+document.getElementById('date').textContent = new Date().toLocaleDateString();
+
+/* 2.  smooth-scroll + header offset + 100 % preventDefault */
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const links  = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(a => {
+    a.addEventListener('click', function (e) {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})
-    })
+      e.stopPropagation();
+
+      const targetId = this.getAttribute('href').slice(1);
+      const target   = document.getElementById(targetId);
+      if (!target) return;
+
+      const headerHeight = header ? header.offsetHeight : 0;
+      const top          = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.replaceState(null, null, '#' + targetId);
+    });
   });
+});
+
+/* 6. one-line confetti */
+function confetti(){
+  import('https://cdn.skypack.dev/canvas-confetti').then(mod=>mod.default({particleCount:75,spread:70,origin:{y:.75}}))
+}
 </script>
 </body>
 </html>
